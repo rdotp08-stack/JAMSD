@@ -16,25 +16,27 @@ function logout() {
   window.location.href = "index.html";
 }
 
-// === GO TO QRAS (Attendance Page) ===
+// === Navigation ===
 function goToQRAS() {
   window.location.href = "attendance.html";
 }
 
-// === ZOOM TO FIT 1920x1080 ===
+// === Scale to Fit ===
 function scaleToFit() {
   const baseWidth = 1920;
   const baseHeight = 1080;
-  const fixedLayout = document.querySelector('.fixed-layout');
-
-  if (!fixedLayout) return;
+  const layout = document.querySelector(".fixed-layout");
+  if (!layout) return;
 
   const scaleX = window.innerWidth / baseWidth;
   const scaleY = window.innerHeight / baseHeight;
   const scale = Math.min(scaleX, scaleY);
 
-  fixedLayout.style.transform = `scale(${scale})`;
+  layout.style.transform = `scale(${scale}) translate(-50%, -50%)`;
+  layout.style.position = "absolute";
+  layout.style.left = "50%";
+  layout.style.top = "50%";
 }
 
-window.addEventListener('resize', scaleToFit);
-window.addEventListener('load', scaleToFit);
+window.addEventListener("resize", scaleToFit);
+window.addEventListener("load", scaleToFit);
