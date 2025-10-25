@@ -1,15 +1,36 @@
-/* Base */
-body {
+/* === BASE === */
+html, body {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: url('https://images.unsplash.com/photo-1606761568499-6d2451b23c92?auto=format&fit=crop&w=1350&q=80') 
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1606761568499-6d2451b23c92?auto=format&fit=crop&w=1920&q=80') 
     no-repeat center center fixed;
   background-size: cover;
-  color: #333;
-  -webkit-tap-highlight-color: transparent;
+  font-family: "Segoe UI", Arial, sans-serif;
+  overflow: hidden;
 }
 
-/* Header */
+/* === ZOOM-TO-FIT WRAPPER === */
+.scale-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.fixed-layout {
+  width: 1920px;
+  height: 1080px;
+  background: rgba(255, 255, 255, 0.0);
+  transform-origin: top left;
+  position: relative;
+  overflow: hidden;
+}
+
+/* === HEADER === */
 .header {
   display: flex;
   align-items: center;
@@ -19,7 +40,6 @@ body {
   padding: 15px 20px;
   flex-wrap: wrap;
   text-align: center;
-  backdrop-filter: blur(5px);
 }
 
 .logo {
@@ -30,32 +50,16 @@ body {
 .header h1 {
   flex: 1;
   text-align: center;
-  font-size: 1.5rem;
-  margin: 10px 0;
+  font-size: 1.6rem;
+  margin: 0;
 }
 
-.logout-btn {
-  background-color: #e74c3c;
-  border: none;
-  color: white;
-  padding: 12px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.2s ease;
-}
-
-.logout-btn:hover {
-  background-color: #c0392b;
-}
-
-/* Login Page */
+/* === LOGIN === */
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 85vh;
-  padding: 15px;
+  height: calc(100% - 100px);
 }
 
 .login-box {
@@ -65,8 +69,7 @@ body {
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
-  width: 100%;
-  max-width: 380px;
+  width: 380px;
 }
 
 .login-box h2 {
@@ -101,7 +104,7 @@ body {
   transition: background 0.2s ease;
 }
 
-.login-box button:active {
+.login-box button:hover {
   background-color: #001a4d;
 }
 
@@ -111,13 +114,12 @@ body {
   font-size: 0.95rem;
 }
 
-/* Dashboard */
+/* === DASHBOARD BUTTONS === */
 .dashboard-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
-  padding: 20px;
+  height: calc(100% - 100px);
 }
 
 .main-btn {
@@ -137,24 +139,18 @@ body {
   transform: scale(0.98);
 }
 
-/* Attendance */
-.attendance-container {
-  text-align: center;
-  margin-top: 100px;
-  padding: 20px;
+/* === LOGOUT BUTTON === */
+.logout-btn {
+  background-color: #e74c3c;
+  border: none;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s ease;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .header h1 {
-    font-size: 1.2rem;
-  }
-  .main-btn {
-    width: 90%;
-    padding: 20px;
-    font-size: 1.1rem;
-  }
-  .login-box {
-    padding: 30px 20px;
-  }
+.logout-btn:hover {
+  background-color: #c0392b;
 }
